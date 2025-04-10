@@ -1,0 +1,11 @@
+.all{
+    background:linear-gradient(blue,red)
+}
+.sidebar-label-container #white-check:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgb(2, 2, 27);
+  }

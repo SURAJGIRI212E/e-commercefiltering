@@ -1,0 +1,75 @@
+.sidebar-title {
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    margin-top: 15px;
+  }
+  
+  .sidebar-items {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .sidebar-label-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    /* -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+  }
+  
+  .sidebar-label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  .all {
+    background: linear-gradient(blue, crimson);
+  }
+  
+  .sidebar-label-container:hover  .checkmark {
+    background-color: #ccc;
+  }
+  
+  .sidebar-label-container input:checked ~ .checkmark {
+    background-color: #091925;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .sidebar-label-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .sidebar-label-container .checkmark:after {
+    top: 5.2px;
+    left: 5.2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgb(239, 239, 241);
+  }
+  
+  .line {
+    margin-top: 3rem;
+    border-color: #f7f7f7;
+  }
