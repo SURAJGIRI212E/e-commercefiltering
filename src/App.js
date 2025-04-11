@@ -44,9 +44,32 @@ console.log("showing cart",showCart)
     }
 
     if (selected) {
-      // ... existing filtering logic ...
+      if (selected === "50") {
+        filteredProducts = filteredProducts.filter(
+          ({ price }) => parseFloat(price.replace(/[^0-9.-]+/g,"")) <= 50
+        );
+      } else if (selected === "100") {
+        filteredProducts = filteredProducts.filter(
+          ({ price }) => parseFloat(price.replace(/[^0-9.-]+/g,"")) > 50 && parseFloat(price.replace(/[^0-9.-]+/g,"")) <= 100
+        );
+      } else if (selected === "150") {
+        filteredProducts = filteredProducts.filter(
+          ({ price }) => parseFloat(price.replace(/[^0-9.-]+/g,"")) > 100 && parseFloat(price.replace(/[^0-9.-]+/g,"")) <= 150
+        );
+      } else if (selected === "200") {
+        filteredProducts = filteredProducts.filter(
+          ({ price }) => parseFloat(price.replace(/[^0-9.-]+/g,"")) > 150
+        );
+      } else {
+        filteredProducts = filteredProducts.filter(
+          ({ category, color, title }) =>
+            category === selected ||
+            color === selected ||
+          
+            title === selected
+        );
+      }
     }
-
     if (selectedcompany) {
       filteredProducts = filteredProducts.filter(
         ({ company }) => company === selectedcompany
