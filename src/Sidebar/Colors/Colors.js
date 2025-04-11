@@ -38,6 +38,25 @@ const Colors = ({handleChange}) => {
           title="Green"
           name="test1"
         />
+        <Input
+          handleChange={handleChange}
+          value="cream"
+          title="Cream"
+          name="test1"
+        />
+        <Input
+          handleChange={handleChange}
+          value="brown"
+          title="Brown"
+          name="test1"
+        />
+        <Input
+          handleChange={handleChange}
+          value="grey"
+          title="Gray"
+          name="test1"
+        />
+
         
 <label className="sidebar-label-container">
           <input

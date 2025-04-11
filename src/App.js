@@ -1,19 +1,25 @@
+// src/App.js
 import { useState } from "react";
-
+import { CartProvider } from "./CartContext"; // Import the CartProvider
 import Navigation from "./Navigation/Nav";
 import Products from "./Products/Products";
 import products from "./db/data";
 import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
+import Cart from "./Navigation/Cart"; // Import the Cart component
 import "./index.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  // ----------- Input Filter -----------
+  const [selectedCompany, setSelectedCompany] = useState(null);
   const [query, setQuery] = useState("");
+  const [showCart, setShowCart] = useState(false); // Use context to get showCart and toggleCart
 
+  const toggleCart = () => {
+    setShowCart((prev) => !prev);
+  };
+console.log("showing cart",showCart)
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
@@ -22,60 +28,60 @@ function App() {
     (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
 
-  // ----------- Radio Filtering -----------
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  // ------------ Button Filtering -----------
   const handleClick = (event) => {
-    setSelectedCategory(event.target.value);
+    setSelectedCompany(event.target.value);
   };
 
-  function filteredData(products, selected, query) {
+  function filteredData(products, selected, selectedcompany, query) {
     let filteredProducts = products;
 
-    // Filtering Input Items
     if (query) {
       filteredProducts = filteredItems;
     }
 
-    // Applying selected filter
     if (selected) {
+      // ... existing filtering logic ...
+    }
+
+    if (selectedcompany) {
       filteredProducts = filteredProducts.filter(
-        ({ category, color, company, newPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          company === selected ||
-          newPrice === selected ||
-          title === selected
+        ({ company }) => company === selectedcompany
       );
     }
 
     return filteredProducts.map(
-      ({ img, title, star, reviews, prevPrice, newPrice }) => (
+      ({ img, title, star, reviews, price }) => (
         <Card
           key={Math.random()}
           img={img}
           title={title}
           star={star}
           reviews={reviews}
-          prevPrice={prevPrice}
-          newPrice={newPrice}
+          price={price}
         />
       )
     );
   }
 
-  const result = filteredData(products, selectedCategory, query);
+  const result = filteredData(products, selectedCategory, selectedCompany, query);
 
   return (
-    <>
+    <CartProvider>
+      <Navigation handleInputChange={handleInputChange} toggleCart={toggleCart} showCart={showCart} />
       <Sidebar handleChange={handleChange} />
-      <Navigation query={query} handleInputChange={handleInputChange} />
-      <Recommended handleClick={handleClick} />
-      <Products result={result} />
-    </>
+      {showCart ? (
+        <Cart /> // Show Cart component if showCart is true
+      ) : (
+        <>
+          <Recommended handleClick={handleClick} currentcompany={selectedCompany} />
+          <Products result={result} />
+        </>
+      )}
+    </CartProvider>
   );
 }
 

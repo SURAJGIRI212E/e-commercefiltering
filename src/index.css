@@ -21,3 +21,20 @@ li{
     color: #323232;
     cursor: pointer;
   }
+  .active{
+    background: #c9c6c6;
+  }
+  button{
+    padding: 10px 20px;
+
+    background:blanchedalmond;
+    border: none;
+    border: 0.6px solid #ccc;
+    border-radius: 5px;
+    color: #323232;
+    cursor: pointer;
+  }
+  button:hover{
+    background:rgb(235, 196, 139);
+  }
+  

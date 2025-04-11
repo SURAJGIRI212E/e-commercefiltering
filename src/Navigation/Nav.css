@@ -12,6 +12,13 @@ nav{
     z-index: 100;
    
 }
+.profile-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  gap: 1rem;               /* Adds spacing between icons */
+}
+
 input {
     padding: 10px 17px;
     border: none;
@@ -26,5 +33,24 @@ input {
   .nav-icons {
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: 2rem;
+   padding: 2px
   }
+  .nav-icons:hover {
+    color: #ffcc00; /* Change color on hover */
+  }
+  .cart-length{
+    color: #f7f6f6;
+    background-color: red;
+    font-size:1rem;
+    padding: 1px 2px;
+    border-radius: 50%;
+  }
+  .showing {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;      /* Vertically center if there's height */
+  width: 100%;     
+  border-bottom: 3px solid black;         /* Optional: stretch full width if needed */
+}
+
+  
