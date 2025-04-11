@@ -2,7 +2,7 @@ import Buttons from '../components/Buttons'
 import './Recommended.css'
 
 const Recommended = ({handleClick, currentcompany}) => {
-  console.log(currentcompany)
+ 
   return (
     <>
       <div>

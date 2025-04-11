@@ -19,7 +19,7 @@ function App() {
   const toggleCart = () => {
     setShowCart((prev) => !prev);
   };
-console.log("showing cart",showCart)
+
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
