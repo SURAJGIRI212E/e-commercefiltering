@@ -2,7 +2,7 @@
 .container{
   display: flex;
  margin-top: 1rem;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .cart-container {
