@@ -60,15 +60,15 @@ function App() {
         filteredProducts = filteredProducts.filter(
           ({ price }) => parseFloat(price.replace(/[^0-9.-]+/g,"")) > 150
         );
-      } else {
-        filteredProducts = filteredProducts.filter(
-          ({ category, color, title }) =>
-            category === selected ||
-            color === selected ||
-          
-            title === selected
-        );
       }
+      else {
+          filteredProducts = filteredProducts.filter(
+            ({ color,category, title }) =>
+              category === selected ||
+              color === selected ||
+              title === selected
+          );
+     }
     }
     if (selectedcompany) {
       filteredProducts = filteredProducts.filter(
@@ -94,16 +94,21 @@ function App() {
 
   return (
     <CartProvider>
+     
+        
+    
       <Navigation handleInputChange={handleInputChange} toggleCart={toggleCart} showCart={showCart} />
-      <Sidebar handleChange={handleChange} />
+       <div className="main">
+       <Sidebar handleChange={handleChange} />
       {showCart ? (
         <Cart /> // Show Cart component if showCart is true
       ) : (
-        <>
+        <div>
           <Recommended handleClick={handleClick} currentcompany={selectedCompany} />
           <Products result={result} />
-        </>
-      )}
+        </div>
+      )} 
+       </div>
     </CartProvider>
   );
 }

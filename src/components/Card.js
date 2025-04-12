@@ -9,6 +9,7 @@ const Card = ({ img, title, star, reviews, price }) => {
   const handleAddToCart = () => {
     const item = { img, title, price }; // Create an item object
     addToCart(item); // Use addToCart from context
+    
   };
 
   return (

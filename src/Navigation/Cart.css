@@ -3,6 +3,7 @@
   display: flex;
  margin-top: 1rem;
   align-items: flex-start;
+  z-index: 210;
 }
 
 .cart-container {
@@ -70,7 +71,7 @@
 
 .total-price{
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 50%;
   border: 2px solid black;
   margin-right: 2rem;
